@@ -1,24 +1,20 @@
-output "network_Rg_name" {
-  value = azurerm_resource_group.network-Rg.name
+output "windows_vm_hostname" {
+  value = values(azurerm_windows_virtual_machine.vmwindows)[*].name
+  }
+
+output "windows_vm_fqdn" {
+  value = values(azurerm_public_ip.windows-pip)[*].fqdn
 }
 
-output "linux_Rg_name" {
-  value = azurerm_resource_group.linux-Rg.name
+output "windows_private_ip_address" {
+  value = values(azurerm_windows_virtual_machine.vmwindows)[*].private_ip_address
 }
 
-output "windows_Rg_name" {
-  value = azurerm_resource_group.windows-Rg.name
+output "windows_public_ip_address" {
+  value = values(azurerm_windows_virtual_machine.vmwindows)[*].public_ip_address
 }
 
-output "network_Rg_location" {
-  value = azurerm_resource_group.network-Rg.location
-}
-
-output "linux_Rg_location" {
-  value = azurerm_resource_group.linux-Rg.location
-}
-
-output "windows_Rg_location" {
-  value = azurerm_resource_group.windows-Rg.location
+output "windows_availability_set" {
+  value = azurerm_availability_set.windows_avs.name
 }
 
